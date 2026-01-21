@@ -47,6 +47,9 @@ function ProductoList() {
             fontSize: 16
           }}
         />
+<Link to="/cotizacion">
+  <button>Ver cotización</button>
+</Link>
 
         {productosFiltrados.map(producto => (
           <div
@@ -79,6 +82,7 @@ function ProductoList() {
             <p>Stock: {producto.stock}</p>
           </div>
         ))}
+        
       </div>
     </div>
   );

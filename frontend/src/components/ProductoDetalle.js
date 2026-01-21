@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCotizacion } from "../context/CotizacionContext";
 
 function ProductoDetalle() {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
+
+  const { agregarProducto } = useCotizacion(); // 👈 AQUÍ
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/productos/${id}/`)
@@ -29,9 +32,9 @@ function ProductoDetalle() {
 
       <p>{producto.descripcion_larga}</p>
 
-      <button>
-  Agregar a cotización
-</button>
+      <button onClick={() => agregarProducto(producto)}>
+        Agregar a cotización
+      </button>
     </div>
   );
 }
