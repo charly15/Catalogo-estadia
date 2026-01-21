@@ -1,0 +1,65 @@
+http://127.0.0.1:8000/admin
+
+Username: admin
+Password: admin123
+
+http://127.0.0.1:8000/api/productos/
+http://127.0.0.1:8000/api/categorias/
+
+cd frontend
+npm start
+
+venv\Scripts\activate
+
+
+Terminal 1 → Django
+
+python manage.py runserver
+
+Terminal 2 → React
+
+npm start
+
+Arquitectura definida (YA DECIDIDA)
+
+Frontend: React
+
+Backend: Django
+
+Base de datos: Relacional (gestionada por Django)
+
+Metodología: SCRUM con avances semanales
+
+Entorno actual: Local (desarrollo)
+
+
+Cada producto ya contempla:
+
+Nombre
+
+Precio
+
+SKU
+
+Marca
+
+Modelo
+
+Categoría
+
+Descripción corta y larga
+
+Imagen
+
+Stock
+
+Estado activo/inactivo
+
+
+Endpoints funcionales para:
+
+Listado de productos
+
+Detalle de producto
+
+Filtro por categoría
