@@ -2,8 +2,19 @@ import { createContext, useContext, useState } from "react";
 
 const CotizacionContext = createContext();
 
+function generarNumeroPedido() {
+  const fecha = new Date();
+  const y = fecha.getFullYear();
+  const m = String(fecha.getMonth() + 1).padStart(2, "0");
+  const d = String(fecha.getDate()).padStart(2, "0");
+  const random = Math.floor(1000 + Math.random() * 9000);
+
+  return `COT-${y}${m}${d}-${random}`;
+}
+
 export function CotizacionProvider({ children }) {
   const [items, setItems] = useState([]);
+  const [numeroPedido] = useState(generarNumeroPedido());
 
   const agregarProducto = (producto) => {
     setItems(prev => {
@@ -27,7 +38,9 @@ export function CotizacionProvider({ children }) {
   );
 
   return (
-    <CotizacionContext.Provider value={{ items, agregarProducto, total }}>
+    <CotizacionContext.Provider
+      value={{ items, agregarProducto, total, numeroPedido }}
+    >
       {children}
     </CotizacionContext.Provider>
   );

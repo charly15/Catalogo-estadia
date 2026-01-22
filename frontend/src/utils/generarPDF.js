@@ -1,6 +1,6 @@
 import jsPDF from "jspdf";
 
-export function generarPDF(items, total) {
+export function generarPDF(items, total, numeroPedido) {
   const doc = new jsPDF();
 
   let y = 20;
@@ -23,6 +23,10 @@ export function generarPDF(items, total) {
   y += 10;
   doc.setFontSize(14);
   doc.text(`Total: $${total}`, 20, y);
+
+  y += 8;
+  doc.setFontSize(12);
+  doc.text(`Número de pedido: ${numeroPedido}`, 20, y);
 
   doc.save("cotizacion.pdf");
 }

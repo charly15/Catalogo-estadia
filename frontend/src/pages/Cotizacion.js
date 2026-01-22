@@ -1,9 +1,8 @@
 import { useCotizacion } from "../context/CotizacionContext";
 import { generarPDF } from "../utils/generarPDF";
 
-
 function Cotizacion() {
-  const { items, total } = useCotizacion();
+  const { items, total, numeroPedido } = useCotizacion();
 
   return (
     <div>
@@ -18,10 +17,14 @@ function Cotizacion() {
       ))}
 
       <h3>Total: ${total}</h3>
-      <button onClick={() => generarPDF(items, total)}>
-  Descargar cotización
-</button>
 
+      <p><strong>Número de pedido:</strong> {numeroPedido}</p>
+
+      {items.length > 0 && (
+        <button onClick={() => generarPDF(items, total, numeroPedido)}>
+          Descargar cotización
+        </button>
+      )}
     </div>
   );
 }
