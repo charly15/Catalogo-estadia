@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getProductos } from "../services/api";
 import { Link } from "react-router-dom";
-import CategoriaList from "./CategoriaList";
+import CategoriaTree from "./CategoriaTree";
+
 
 function ProductoList() {
   const [productos, setProductos] = useState([]);
@@ -28,7 +29,8 @@ function ProductoList() {
   return (
     <div style={{ display: "flex" }}>
       {/* CATEGORÍAS */}
-      <CategoriaList onSelect={setCategoriaSeleccionada} />
+      <CategoriaTree onSelect={setCategoriaSeleccionada} />
+
 
       {/* CONTENIDO */}
       <div style={{ flex: 1 }}>

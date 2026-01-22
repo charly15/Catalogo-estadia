@@ -3,9 +3,19 @@ from django.db import models
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='subcategorias'
+    )
 
     def __str__(self):
+        if self.parent:
+            return f"{self.parent} → {self.nombre}"
         return self.nombre
+
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=200)
@@ -22,13 +32,18 @@ class Producto(models.Model):
     stock = models.PositiveIntegerField(default=0)
 
     imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(
+        Categoria,
+        on_delete=models.PROTECT,
+        related_name="productos"
+    )
 
     activo = models.BooleanField(default=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.nombre
+
 
 class Cotizacion(models.Model):
     nombre_cliente = models.CharField(max_length=150)
