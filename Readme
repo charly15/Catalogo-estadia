@@ -1,3 +1,259 @@
+# Sistema Web de Catálogo de Productos con Cotización
+
+## README DEL PROYECTO
+
+### 1. Descripción general
+
+Este proyecto consiste en el desarrollo de un **sistema web tipo catálogo de productos con funcionalidad de cotización**, orientado a una empresa que requiere exhibir sus productos en línea de manera estructurada, administrable y escalable. El sistema permite a los usuarios finales navegar por un catálogo, filtrar productos por categoría, consultar el detalle de cada producto y generar una cotización estimada sin realizar pagos en línea.
+
+El sistema está diseñado bajo una **arquitectura cliente–servidor**, separando claramente el frontend y el backend mediante una **API REST**, lo que facilita el mantenimiento, la escalabilidad y futuras extensiones del sistema.
+
+---
+
+### 2. Arquitectura definida
+
+* **Frontend:** React (JavaScript)
+* **Backend:** Django + Django REST Framework (Python)
+* **Base de datos:** Relacional (SQLite en entorno de desarrollo)
+* **Arquitectura:** Cliente–Servidor con API REST
+* **Metodología:** SCRUM (avances semanales)
+* **Entorno actual:** Local (desarrollo)
+
+---
+
+### 3. Funcionalidades del sistema
+
+#### 3.1 Funcionalidad principal
+
+* Catálogo de productos en línea
+
+#### 3.2 Funcionalidades secundarias
+
+* Listado de productos
+* Detalle de producto
+* Gestión de categorías (incluye categorías sin productos)
+* Filtro de productos por categoría
+* Buscador de productos por nombre o descripción
+* Sistema de cotización (cálculo estimado, sin pagos)
+* Panel administrativo (CRUD de productos y categorías)
+
+---
+
+### 4. Modelo de producto
+
+Cada producto contempla los siguientes atributos:
+
+* Nombre
+* Precio
+* SKU
+* Marca
+* Modelo
+* Categoría
+* Descripción corta
+* Descripción larga
+* Imagen
+* Stock
+* Estado (activo / inactivo)
+
+---
+
+### 5. Endpoints disponibles (API REST)
+
+* **Panel de administración (Django Admin):**
+
+  * [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+  * Usuario: `admin`
+  * Contraseña: `admin123`
+
+* **Listado de productos:**
+
+  * [http://127.0.0.1:8000/api/productos/](http://127.0.0.1:8000/api/productos/)
+
+* **Listado de categorías:**
+
+  * [http://127.0.0.1:8000/api/categorias/](http://127.0.0.1:8000/api/categorias/)
+
+Estos endpoints permiten el consumo de datos desde el frontend y pueden ser reutilizados por otros clientes en el futuro.
+
+---
+
+### 6. Ejecución del proyecto en entorno local
+
+#### 6.1 Backend (Django)
+
+```bash
+venv\Scripts\activate
+python manage.py runserver
+```
+
+#### 6.2 Frontend (React)
+
+```bash
+cd frontend
+npm start
+```
+
+* **Terminal 1:** Backend (Django)
+* **Terminal 2:** Frontend (React)
+
+---
+
+## MEMORIA TÉCNICA / DOCUMENTO TIPO TESIS
+
+## Índice
+
+1. Introducción
+2. Planteamiento del problema
+3. Justificación del proyecto
+4. Objetivos
+
+   * Objetivo general
+   * Objetivos específicos
+5. Marco teórico
+
+   * Aplicaciones web
+   * Arquitectura REST
+   * Frontend y Backend
+   * Metodología SCRUM
+6. Desarrollo del sistema
+
+   * Arquitectura del sistema
+   * Separación frontend y backend
+   * Lógica de negocio y lógica de presentación
+   * Casos de uso
+   * Diagramas (descripción textual)
+7. Resultados obtenidos
+8. Alcances y limitaciones
+9. Conclusiones
+
+---
+
+## 1. Introducción
+
+El crecimiento del comercio digital ha impulsado a las empresas a adoptar soluciones tecnológicas que les permitan mostrar sus productos de manera accesible y organizada. En este contexto, el presente proyecto aborda el desarrollo de un sistema web tipo catálogo de productos con funcionalidad de cotización, el cual permite a una empresa exhibir su oferta comercial sin necesidad de implementar un sistema de pagos en línea.
+
+Este documento presenta el análisis, diseño, desarrollo e implementación del sistema, utilizando tecnologías modernas y una metodología ágil, con el objetivo de cumplir estándares académicos y profesionales.
+
+---
+
+## 2. Planteamiento del problema
+
+Muchas pequeñas y medianas empresas carecen de plataformas digitales que les permitan mostrar su catálogo de productos de forma estructurada y administrable. La ausencia de estas herramientas limita su alcance comercial y dificulta la interacción con potenciales clientes.
+
+Además, la falta de separación entre la lógica de negocio y la presentación suele generar sistemas poco escalables y difíciles de mantener. Por ello, se identifica la necesidad de desarrollar un sistema web modular, basado en una arquitectura cliente–servidor, que permita la gestión eficiente de productos y categorías.
+
+---
+
+## 3. Justificación del proyecto
+
+El desarrollo de este sistema se justifica desde los siguientes puntos de vista:
+
+* **Académico:** Permite aplicar conocimientos de desarrollo web, arquitectura REST y metodologías ágiles.
+* **Tecnológico:** Utiliza herramientas modernas como React y Django REST Framework.
+* **Práctico:** Proporciona una solución funcional y escalable para la gestión de catálogos de productos.
+
+La separación frontend/backend garantiza una mejor organización del código y facilita futuras mejoras o integraciones.
+
+---
+
+## 4. Objetivos
+
+### 4.1 Objetivo general
+
+Desarrollar un sistema web tipo catálogo de productos con funcionalidad de cotización, utilizando una arquitectura cliente–servidor basada en una API REST.
+
+### 4.2 Objetivos específicos
+
+* Diseñar una base de datos relacional para la gestión de productos y categorías.
+* Implementar un backend en Django con endpoints REST funcionales.
+* Desarrollar un frontend en React para la visualización del catálogo.
+* Aplicar la metodología SCRUM durante el desarrollo del proyecto.
+
+---
+
+## 5. Marco teórico
+
+### 5.1 Aplicaciones web
+
+Una aplicación web es un sistema accesible mediante un navegador, que permite la interacción entre usuarios y servidores a través del protocolo HTTP.
+
+### 5.2 Arquitectura REST
+
+REST (Representational State Transfer) es un estilo arquitectónico que define un conjunto de principios para el diseño de servicios web escalables y desacoplados.
+
+### 5.3 Frontend y Backend
+
+* **Frontend:** Encargado de la interfaz de usuario y la experiencia visual (React).
+* **Backend:** Responsable de la lógica de negocio, acceso a datos y seguridad (Django).
+
+### 5.4 Metodología SCRUM
+
+SCRUM es una metodología ágil que promueve el desarrollo incremental mediante sprints, revisiones periódicas y retroalimentación constante.
+
+---
+
+## 6. Desarrollo del sistema
+
+### 6.1 Arquitectura del sistema
+
+El sistema sigue una arquitectura cliente–servidor, donde el frontend consume datos desde una API REST desarrollada en el backend.
+
+### 6.2 Separación frontend y backend
+
+Las funcionalidades relacionadas con:
+
+* **Backend:**
+
+  * Gestión de datos
+  * Reglas de negocio
+  * Seguridad y validaciones
+  * CRUD de productos y categorías
+
+* **Frontend:**
+
+  * Visualización del catálogo
+  * Filtros y buscador
+  * Interacción del usuario
+
+Esta separación mejora la mantenibilidad y escalabilidad del sistema.
+
+### 6.3 Casos de uso (descripción textual)
+
+* El administrador gestiona productos y categorías desde el panel administrativo.
+* El usuario visualiza el listado de productos.
+* El usuario filtra productos por categoría.
+* El usuario consulta el detalle de un producto.
+* El usuario genera una cotización estimada.
+
+---
+
+## 7. Resultados obtenidos
+
+El sistema desarrollado cumple con los objetivos planteados, permitiendo la gestión eficiente de productos y su visualización desde una interfaz moderna y responsiva.
+
+---
+
+## 8. Alcances y limitaciones
+
+### Alcances
+
+* Catálogo funcional en entorno local.
+* API REST reutilizable.
+
+### Limitaciones
+
+* No incluye sistema de pagos.
+* Despliegue limitado al entorno de desarrollo.
+
+---
+
+## 9. Conclusiones
+
+El desarrollo del sistema permitió aplicar conceptos clave de desarrollo web moderno, arquitectura REST y metodologías ágiles. La correcta separación entre frontend y backend facilita la escalabilidad y mantenimiento del sistema, cumpliendo con los requisitos académicos y técnicos establecidos.
+
+
+## 10.Comandos
+
 http://127.0.0.1:8000/admin
 
 Username: admin
