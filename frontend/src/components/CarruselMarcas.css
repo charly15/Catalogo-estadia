@@ -1,0 +1,13 @@
+.carrusel-marcas {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrusel-imagen {
+  max-height: 50px;
+  max-width: 200px;
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out;
+}
